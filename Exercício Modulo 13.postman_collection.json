@@ -11,6 +11,22 @@
 			"item": [
 				{
 					"name": "Listar Usuario",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Buscar usuario da Lista\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Giovana Birello\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -19,7 +35,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"quantidade\": 1,\r\n  \"usuarios\": [\r\n    {\r\n      \"nome\": \"Fulano da Silva\",\r\n      \"email\": \"beltrano@qa.com.br\",\r\n      \"password\": \"teste\",\r\n      \"administrador\": \"true\",\r\n      \"_id\": \"0uxuPY0cbmQhpEz1\"\r\n    }\r\n  ]\r\n}",
+							"raw": "{\r\n    \"quantidade\": 11,\r\n    \"usuarios\": [\r\n        {\r\n            \"nome\": \"Fulano da Silva v1\",\r\n            \"email\": \"beltrano@qa.com.br\",\r\n            \"password\": \"teste\",\r\n            \"administrador\": \"true\",\r\n            \"_id\": \"0uxuPY0cbmQhpEz1\"\r\n        },\r\n        {\r\n            \"nome\": \"Fulano da Silva\",\r\n            \"email\": \"beltrano@qa.br\",\r\n            \"password\": \"teste\",\r\n            \"administrador\": \"true\",\r\n            \"_id\": \"3H1BaA6BVfEmooiL\"\r\n        },\r\n        {\r\n            \"nome\": \"Fulano da Silva\",\r\n            \"email\": \"beltrano@q.br\",\r\n            \"password\": \"..\",\r\n            \"administrador\": \"true\",\r\n            \"_id\": \"41uhx6Qq0E1XfFD3\"\r\n        },\r\n        {\r\n            \"nome\": \"Fulano da Silva\",\r\n            \"email\": \"jose@q.br\",\r\n            \"password\": \"132\",\r\n            \"administrador\": \"true\",\r\n            \"_id\": \"76zkFCwiP7iKZgo4\"\r\n        },\r\n        {\r\n            \"nome\": \"Aline Birello v3\",\r\n            \"email\": \"Birello.v3@teste.com.br\",\r\n            \"password\": \"teste1\",\r\n            \"administrador\": \"true\",\r\n            \"_id\": \"JnesHRun2dKGDIEY\"\r\n        },\r\n        {\r\n            \"nome\": \"Aline Birello\",\r\n            \"email\": \"birello.teste@teste.com.br\",\r\n            \"password\": \"teste\",\r\n            \"administrador\": \"true\",\r\n            \"_id\": \"KJQ3cuzV4rSx8cl8\"\r\n        },\r\n        {\r\n            \"nome\": \"Aline Birello v2\",\r\n            \"email\": \"Birello.v2@teste.com.br\",\r\n            \"password\": \"teste1\",\r\n            \"administrador\": \"true\",\r\n            \"_id\": \"LEZeUQ72wHRmisqu\"\r\n        },\r\n        {\r\n            \"nome\": \"Aline Birello\",\r\n            \"email\": \"Birello.teste@teste.com.br\",\r\n            \"password\": \"teste123\",\r\n            \"administrador\": \"true\",\r\n            \"_id\": \"NK66tYjCSWOk2gM6\"\r\n        },\r\n        {\r\n            \"nome\": \"Giovana Birello\",\r\n            \"email\": \"Birello.Giovana@teste.com.br\",\r\n            \"password\": \"teste1\",\r\n            \"administrador\": \"true\",\r\n            \"_id\": \"ZCgeEdYJ12ETqzlC\"\r\n        },\r\n        {\r\n            \"nome\": \"Giovana v1\",\r\n            \"email\": \"Birello.v1@teste.com.br\",\r\n            \"password\": \"teste1\",\r\n            \"administrador\": \"true\",\r\n            \"_id\": \"wQmhNaJUA34MjQnf\"\r\n        },\r\n        {\r\n            \"nome\": \"Giovana v4\",\r\n            \"email\": \"Birello.v4@teste.com.br\",\r\n            \"password\": \"teste1\",\r\n            \"administrador\": \"true\",\r\n            \"_id\": \"yhEPpEaynjmDogDx\"\r\n        }\r\n    ]\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -42,12 +58,28 @@
 				},
 				{
 					"name": "Cadastrar Usuarios",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"pm.test(\"Validar cadastro com sucesso\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Giovana 10\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"nome\": \"Aline Birello v2\",\r\n  \"email\": \"Birello.v2@teste.com.br\",\r\n  \"password\": \"teste1\",\r\n  \"administrador\": \"true\"\r\n}",
+							"raw": "{\r\n  \"nome\": \"Giovana 10\",\r\n  \"email\": \"Birello.10@teste.com.br\",\r\n  \"password\": \"teste1\",\r\n  \"administrador\": \"true\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -70,6 +102,22 @@
 				},
 				{
 					"name": "Buscar Usuarios ID Negativo",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Validar código 400\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"pm.test(\"Buscar nome usuario negativo\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Zjoao\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -102,12 +150,28 @@
 				},
 				{
 					"name": "Excluir Usuario",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code é 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Exclusão com sucesso\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Giovana v1\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "DELETE",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "",
+							"raw": "{\r\n\"nome\": \"Giovana v1\",\r\n\"email\": \"Birello.v1@teste.com.br\",\r\n\"password\": \"teste1\",\r\n\"administrador\": \"true\",\r\n\"_id\": \"wQmhNaJUA34MjQnf\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -202,12 +266,28 @@
 				},
 				{
 					"name": "Cadastro Negativo",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code\", function () {\r",
+									"    pm.response.to.have.status(400);\r",
+									"});\r",
+									"pm.test(\"cadastro negativo\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Fulano da Silva\");\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"nome\": \"Fulano da Silva\",\r\n  \"email\": \"beltrano@q.br\",\r\n  \"password\": \"\",\r\n  \"administrador\": \"true\"\r\n}",
+							"raw": "{\r\n  \"nome\": \"Fulano da Silva\",\r\n  \"email\": \"beltrano@qa.com.br\",\r\n  \"password\": \"teste\",\r\n  \"administrador\": \"true\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -230,9 +310,37 @@
 				},
 				{
 					"name": "Buscar Usuario",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"pm.test(\"Buscar nome usuario\", function () {\r",
+									"    pm.expect(pm.response.text()).to.include(\"Aline Birello\");\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
 						"url": {
 							"raw": "http://localhost:3000/usuarios/KJQ3cuzV4rSx8cl8",
 							"protocol": "http",
